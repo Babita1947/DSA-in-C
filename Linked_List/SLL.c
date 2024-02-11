@@ -54,7 +54,29 @@ void insertAtFirstNode(int data)
     }
     
 }
-
+void insert_mid(int data,int pos)
+{
+  struct node *temp;
+  struct node *n;
+  n = createNode();
+  if(pos >= length()+1)
+  {
+    printf("Error --- %d > %d",pos,length());
+  }
+  n->info = data;
+  if(START ==  NULL){
+     n->link = START;
+     START = n;
+  }
+  else{
+    temp = START;
+    for(int i=1;i<pos;i++){
+      temp = temp->link;
+    }
+    n->link = temp->link;
+    temp->link = n;
+  }
+}
 void deleteFirstNode()
 {
     struct node *temp;
